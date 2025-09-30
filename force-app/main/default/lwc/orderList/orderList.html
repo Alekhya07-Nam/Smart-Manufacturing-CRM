@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Upcoming Orders">
+        <lightning-button label="New Order" onclick={handleNewOrder} class="slds-m-bottom_small"></lightning-button>
+
+        <template if:true={orders}>
+            <lightning-datatable
+                data={orders}
+                columns={columns}
+                key-field="Id"
+                onrowaction={handleRowAction}>
+            </lightning-datatable>
+        </template>
+
+        <template if:true={error}>
+            <div class="slds-text-color_error">{error}</div>
+        </template>
+    </lightning-card>
+</template>
